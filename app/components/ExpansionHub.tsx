@@ -5,8 +5,8 @@ import { supabase } from "@/lib/supabase";
 import { BookOpen, Users, Plus, Search, Upload, Lock, Globe, ShieldCheck, Download, Trash2, Clock3 } from "lucide-react";
 
 type ProfileLite = { id: string; full_name: string; student_status: string; university_id: string | null; role: string };
-type Community = { id: string; name: string; description: string; community_type: "public"|"private"|"hidden"; category: string; created_by: string; join_approval: boolean };
-type Resource = { id: string; title: string; description: string; course_code: string|null; department: string|null; semester: string|null; status: string; uploaded_by: string; storage_path: string|null; mime_type: string|null; file_size_bytes: number|null; created_at: string };
+type Community = { id: string; name: string; description: string; community_type: "public"|"private"|"hidden"; category: string; created_by: string; join_approval_required: boolean };
+type Resource = { id: string; title: string; description: string; course_code: string|null; department: string|null; semester: string|null; status: string; uploader_id: string; file_key: string|null; file_name: string|null; file_mime: string|null; file_size_bytes: number|null; created_at: string };
 
 const categories = ["Class Notes","Lecture Slides","PDF Books","Textbooks","Handouts","Previous Year Questions","Question Bank","Model Tests","Assignments","Lab Reports","Research Papers","Thesis","Tutorials","Programming Resources","Video Lectures","Other Resources"];
 
@@ -34,9 +34,9 @@ export default function ExpansionHub({ profile }: { profile: ProfileLite }) {
   async function load() {
     if (!supabase) return;
     const [c,m,r] = await Promise.all([
-      supabase.from("communities").select("id,name,description,community_type,category,created_by,join_approval").eq("is_deleted",false).eq("community_type","public").order("created_at",{ascending:false}).limit(30),
+      supabase.from("communities").select("id,name,description,community_type,category,created_by,join_approval_required").eq("is_archived",false).order("created_at",{ascending:false}).limit(100),
       supabase.from("community_members").select("community_id").eq("user_id",profile.id).eq("status","active"),
-      supabase.from("academic_resources").select("id,title,description,course_code,department,semester,status,uploaded_by,storage_path,mime_type,file_size_bytes,created_at").or(`status.eq.approved,uploaded_by.eq.${profile.id}`).order("created_at",{ascending:false}).limit(100)
+      supabase.from("academic_resources").select("id,title,description,course_code,department,semester,status,uploader_id,file_key,file_name,file_mime,file_size_bytes,created_at").is("deleted_at",null).or(`status.eq.approved,uploader_id.eq.${profile.id}`).order("created_at",{ascending:false}).limit(100)
     ]);
     if (c.error) setMessage(`Community load: ${c.error.message}`);
     else setCommunities((c.data||[]) as Community[]);
@@ -48,9 +48,10 @@ export default function ExpansionHub({ profile }: { profile: ProfileLite }) {
   async function createCommunity() {
     if (!supabase || !verified || communityName.trim().length<3) return;
     setBusy(true); setMessage("");
-    const {error}=await supabase.from("communities").insert({
-      name:communityName.trim(),description:communityDescription.trim(),community_type:communityType,
-      category:"General",created_by:profile.id,university_id:profile.university_id,join_approval:communityType!=="public"
+    const {error}=await supabase.rpc("create_campus_community",{
+      p_name:communityName.trim(),p_description:communityDescription.trim(),p_category:"General",
+      p_university_id:profile.university_id,p_department:null,p_type:communityType,p_rules:"",
+      p_max_members:null,p_join_approval:communityType!=="public",p_invitation_permission:"admin_only"
     });
     setBusy(false);
     if(error) setMessage(error.message);
@@ -59,7 +60,7 @@ export default function ExpansionHub({ profile }: { profile: ProfileLite }) {
   async function joinCommunity(c:Community) {
     if (!supabase || !verified) return;
     setBusy(true);
-    const direct = c.community_type==="public" && !c.join_approval;
+    const direct = c.community_type==="public" && !c.join_approval_required;
     const result = direct
       ? await supabase.from("community_members").insert({community_id:c.id,user_id:profile.id,role:"member",status:"active"})
       : await supabase.from("community_join_requests").insert({community_id:c.id,user_id:profile.id});
@@ -76,34 +77,34 @@ export default function ExpansionHub({ profile }: { profile: ProfileLite }) {
     setBusy(true);setMessage("");
     const safeName=f.name.replace(/[^a-zA-Z0-9._-]/g,"_");
     const path=`${profile.id}/${crypto.randomUUID()}-${safeName}`;
-    const up=await supabase.storage.from("campus-private").upload(path,f,{contentType:f.type,upsert:false});
+    const up=await supabase.storage.from("academic-resources").upload(path,f,{contentType:f.type,upsert:false});
     if(up.error){setBusy(false);setMessage(up.error.message);return;}
     const cat=await supabase.from("resource_categories").select("id").eq("name",resourceCategory).maybeSingle();
     const ins=await supabase.from("academic_resources").insert({
       title:resourceTitle.trim(),description:resourceDescription.trim(),university_id:profile.university_id,
       department:null,semester:semester||null,course_code:courseCode||null,category_id:cat.data?.id||null,
-      storage_path:path,mime_type:f.type,file_size_bytes:f.size,stored_size_bytes:f.size,
-      uploaded_by:profile.id,status:"pending",visibility:"university"
+      file_provider:"supabase",file_key:path,file_name:f.name,file_mime:f.type,file_size_bytes:f.size,
+      uploader_id:profile.id,status:"pending",visibility:"university"
     });
     setBusy(false);
-    if(ins.error){await supabase.storage.from("campus-private").remove([path]);setMessage(ins.error.message);return;}
+    if(ins.error){await supabase.storage.from("academic-resources").remove([path]);setMessage(ins.error.message);return;}
     setResourceTitle("");setResourceDescription("");setCourseCode("");setSemester("");setResourceFile(null);
     setMessage("Uploaded for review. It will appear in the library after approval.");
     await load();
   }
   async function removeResource(r:Resource) {
-    if(!supabase || r.uploaded_by!==profile.id) return;
+    if(!supabase || r.uploader_id!==profile.id) return;
     if(!confirm("Delete this resource?")) return;
-    const del=await supabase.from("academic_resources").update({deleted_at:new Date().toISOString()}).eq("id",r.id).eq("uploaded_by",profile.id);
+    const del=await supabase.from("academic_resources").update({deleted_at:new Date().toISOString()}).eq("id",r.id).eq("uploader_id",profile.id);
     if(del.error){setMessage(del.error.message);return;}
-    if(r.storage_path) await supabase.storage.from("campus-private").remove([r.storage_path]);
+    if(r.file_key) await supabase.storage.from("academic-resources").remove([r.file_key]);
     setMessage("Resource deleted.");await load();
   }
   async function downloadResource(r:Resource) {
-    if(!supabase || !r.storage_path) return;
-    const {data,error}=await supabase.storage.from("campus-private").download(r.storage_path);
+    if(!supabase || !r.file_key) return;
+    const {data,error}=await supabase.storage.from("academic-resources").download(r.file_key);
     if(error){setMessage(error.message);return;}
-    const url=URL.createObjectURL(data);const a=document.createElement("a");a.href=url;a.download=r.title;a.click();URL.revokeObjectURL(url);
+    const url=URL.createObjectURL(data);const a=document.createElement("a");a.href=url;a.download=r.file_name||r.title;a.click();window.setTimeout(()=>URL.revokeObjectURL(url),1000);
   }
 
   if (!verified) return <section className="ccx-gate"><ShieldCheck size={34}/><h2>Verified student access</h2><p>Community creation, membership and Academic Resource Library contributions are available after your student verification is approved.</p></section>;
@@ -123,7 +124,7 @@ export default function ExpansionHub({ profile }: { profile: ProfileLite }) {
         <label>Visibility</label><select value={communityType} onChange={e=>setCommunityType(e.target.value as any)}><option value="public">Public</option><option value="private">Private</option><option value="hidden">Hidden</option></select>
         <button className="ccx-primary" disabled={busy||communityName.trim().length<3} onClick={createCommunity}>{busy?"Creating…":"Create community"}</button>
       </article>
-      <article className="ccx-panel"><h3>Discover communities</h3>{communities.length===0?<p className="ccx-muted">No public communities yet.</p>:communities.map(c=><div className="ccx-listrow" key={c.id}><div className="ccx-round"><Users size={18}/></div><div className="ccx-grow"><strong>{c.name}</strong><p>{c.description||"University community"}</p><small><Globe size={12}/> Public</small></div>{membership.includes(c.id)?<span className="ccx-muted">Joined</span>:<button className="ccx-secondary" disabled={busy} onClick={()=>joinCommunity(c)}>Join</button>}</div>)}</article>
+      <article className="ccx-panel"><h3>Discover communities</h3>{communities.length===0?<p className="ccx-muted">No public communities yet.</p>:communities.map(c=><div className="ccx-listrow" key={c.id}><div className="ccx-round"><Users size={18}/></div><div className="ccx-grow"><strong>{c.name}</strong><p>{c.description||"University community"}</p><small>{c.community_type==="public"?<><Globe size={12}/> Public</>:<><Lock size={12}/> {c.community_type}</>}</small></div>{membership.includes(c.id)?<span className="ccx-muted">Joined</span>:<button className="ccx-secondary" disabled={busy} onClick={()=>joinCommunity(c)}>Join</button>}</div>)}</article>
     </div>}
     {section==="library"&&<div className="ccx-library">
       <div className="ccx-search"><Search size={18}/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search title, course code, topic…"/></div>
@@ -137,6 +138,6 @@ export default function ExpansionHub({ profile }: { profile: ProfileLite }) {
       </div><button className="ccx-primary" disabled={busy||!resourceTitle.trim()||!resourceFile} onClick={uploadResource}>{busy?"Uploading…":"Submit for review"}</button></article>
       <div className="ccx-resource-grid">{filteredResources.map(r=><article className="ccx-resource" key={r.id}><span className="ccx-file"><BookOpen size={20}/></span><div className="ccx-grow"><strong>{r.title}</strong><p>{r.course_code||"Academic resource"} · {r.semester||"Semester not specified"}</p><small><Clock3 size={12}/> {new Date(r.created_at).toLocaleDateString()}</small></div><button className="ccx-secondary" onClick={()=>downloadResource(r)}><Download size={15}/> Download</button></article>)}{filteredResources.length===0&&<p className="ccx-muted">No matching approved resources.</p>}</div>
     </div>}
-    {section==="mine"&&<div className="ccx-resource-grid">{resources.filter(r=>r.uploaded_by===profile.id).map(r=><article className="ccx-resource" key={r.id}><span className="ccx-file"><BookOpen size={20}/></span><div className="ccx-grow"><strong>{r.title}</strong><p>Status: {r.status}</p></div><button className="ccx-danger" onClick={()=>removeResource(r)}><Trash2 size={15}/> Delete</button></article>)}{resources.every(r=>r.uploaded_by!==profile.id)&&<p className="ccx-muted">Your uploaded resources will appear here after upload. Pending items are not listed in the public library.</p>}</div>}
+    {section==="mine"&&<div className="ccx-resource-grid">{resources.filter(r=>r.uploader_id===profile.id).map(r=><article className="ccx-resource" key={r.id}><span className="ccx-file"><BookOpen size={20}/></span><div className="ccx-grow"><strong>{r.title}</strong><p>Status: {r.status}</p></div><button className="ccx-danger" onClick={()=>removeResource(r)}><Trash2 size={15}/> Delete</button></article>)}{resources.every(r=>r.uploader_id!==profile.id)&&<p className="ccx-muted">Your uploaded resources will appear here after upload. Pending items are not listed in the public library.</p>}</div>}
   </section>;
 }
