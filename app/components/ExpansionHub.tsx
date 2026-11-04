@@ -6,7 +6,7 @@ import { BookOpen, Users, Plus, Search, Upload, Lock, Globe, ShieldCheck, Downlo
 
 type ProfileLite = { id: string; full_name: string; student_status: string; university_id: string | null; role: string };
 type Community = { id: string; name: string; description: string; community_type: "public"|"private"|"hidden"; category: string; created_by: string; join_approval: boolean };
-type Resource = { id: string; title: string; description: string; course_code: string|null; department: string|null; semester: string|null; status: string; uploaded_by: string; storage_path: string|null; title: string|null; mime_type: string|null; file_size_bytes: number|null; created_at: string };
+type Resource = { id: string; title: string; description: string; course_code: string|null; department: string|null; semester: string|null; status: string; uploaded_by: string; storage_path: string|null; mime_type: string|null; file_size_bytes: number|null; created_at: string };
 
 const categories = ["Class Notes","Lecture Slides","PDF Books","Textbooks","Handouts","Previous Year Questions","Question Bank","Model Tests","Assignments","Lab Reports","Research Papers","Thesis","Tutorials","Programming Resources","Video Lectures","Other Resources"];
 
@@ -36,7 +36,7 @@ export default function ExpansionHub({ profile }: { profile: ProfileLite }) {
     const [c,m,r] = await Promise.all([
       supabase.from("communities").select("id,name,description,community_type,category,created_by,join_approval").eq("is_deleted",false).order("created_at",{ascending:false}).limit(100),
       supabase.from("community_members").select("community_id").eq("user_id",profile.id).eq("status","active"),
-      supabase.from("academic_resources").select("id,title,description,course_code,department,semester,status,uploaded_by,storage_path,title,mime_type,file_size_bytes,created_at").is("deleted_at",null).or(`status.eq.approved,uploaded_by.eq.${profile.id}`).order("created_at",{ascending:false}).limit(100)
+      supabase.from("academic_resources").select("id,title,description,course_code,department,semester,status,uploaded_by,storage_path,mime_type,file_size_bytes,created_at").is("deleted_at",null).or(`status.eq.approved,uploaded_by.eq.${profile.id}`).order("created_at",{ascending:false}).limit(100)
     ]);
     if (c.error) setMessage(`Community load: ${c.error.message}`);
     else setCommunities((c.data||[]) as Community[]);
