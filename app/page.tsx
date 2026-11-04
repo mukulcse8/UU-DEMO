@@ -1519,9 +1519,28 @@ export default function Home() {
               </div> : <p>তোমার শিক্ষার্থী পরিচয় যাচাই সম্পন্ন। ক্লাস গ্রুপ ও একাডেমিক সুবিধা ব্যবহার করতে পারবে।</p>}
             </section>}
 
-            <div className="section-heading">
+            <div className="section-heading cc-feed-heading">
               <div><h2>ক্যাম্পাস ফিড</h2><p>তোমার কমিউনিটির সাম্প্রতিক আলোচনা</p></div>
+              <span className="cc-live-label"><i /> CAMPUS LIVE</span>
             </div>
+
+            <section className="cc-campus-strip" aria-label="Campus shortcuts">
+              <button className="cc-moment-card cc-moment-primary" onClick={() => setTab("people")}>
+                <span className="cc-moment-icon"><UsersRound size={21}/></span>
+                <span><strong>People</strong><small>শিক্ষার্থী খুঁজুন</small></span>
+                <span className="cc-moment-arrow">↗</span>
+              </button>
+              <button className="cc-moment-card cc-moment-groups" onClick={() => setTab("groups")}>
+                <span className="cc-moment-icon"><Hash size={21}/></span>
+                <span><strong>Campus circles</strong><small>গ্রুপ ও আলোচনা</small></span>
+                <span className="cc-moment-arrow">↗</span>
+              </button>
+              <button className="cc-moment-card cc-moment-library" onClick={() => setTab("hub")}>
+                <span className="cc-moment-icon"><BookOpen size={21}/></span>
+                <span><strong>Study space</strong><small>Academic Library</small></span>
+                <span className="cc-moment-arrow">↗</span>
+              </button>
+            </section>
 
             {user && <div className="composer">
               <div className="composer-top">
