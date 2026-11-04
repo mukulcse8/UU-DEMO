@@ -221,3 +221,71 @@ html[data-theme="dark"] .nav-menu button.active{background:#263b53;color:#8abfff
 @media(max-width:400px){.top-search{max-width:125px}.brand{font-size:15px}.top-actions{gap:3px}.profile-shortcut .avatar{width:33px;height:33px}.settings-shortcut,.icon-button{width:33px;height:33px}}
 :root{--card:var(--cc-surface);--border:var(--cc-border);--input:var(--cc-surface);--foreground:var(--cc-text)}
 html[data-theme="dark"]{--card:var(--cc-surface);--border:var(--cc-border);--input:#3a3b3c;--foreground:var(--cc-text);--muted:var(--cc-muted)}
+
+
+/* CampusConnect original hybrid visual language: social discovery + campus utility. */
+:root{
+  --cc-brand:#3857d6;--cc-brand-soft:#edf0ff;--cc-aqua:#12a89a;
+  --cc-lilac:#7656c9;--cc-card-shadow:0 8px 30px rgba(31,45,94,.055);
+}
+html[data-theme="dark"]{--cc-brand-soft:#28314f}
+.topbar{display:grid;grid-template-columns:minmax(190px,245px) minmax(180px,1fr) auto;gap:clamp(14px,2vw,30px)}
+.brandmark{border-radius:13px;background:linear-gradient(145deg,#e9edff,#dff8f4);color:var(--cc-brand)}
+.top-search{justify-self:center;width:min(100%,520px);border:1px solid var(--cc-border);transition:border-color .18s,box-shadow .18s}
+.top-search:focus-within{border-color:#9aa9f4;box-shadow:0 0 0 4px rgba(56,87,214,.09)}
+.layout{grid-template-columns:250px minmax(0,700px) 285px;gap:clamp(14px,1.7vw,24px)}
+.left-sidebar,.right-sidebar{position:sticky;top:82px}
+.nav-menu button{position:relative;transition:background .18s,color .18s,transform .18s}
+.nav-menu button.active{background:linear-gradient(100deg,var(--cc-brand-soft),transparent);color:var(--cc-brand)}
+.nav-menu button.active:before{content:"";position:absolute;left:0;top:9px;bottom:9px;width:3px;border-radius:4px;background:var(--cc-brand)}
+.hero{border-radius:22px;background:radial-gradient(circle at 88% 20%,rgba(18,168,154,.18),transparent 28%),linear-gradient(118deg,#e9edff 0%,#f5f7ff 58%,#e4f8f4 100%);border-color:#e0e7ff}
+.hero-art{color:var(--cc-brand)}
+.welcome-card,.account-card,.side-widget,.composer,.post-card,.university-card,.settings-card{border-radius:18px;box-shadow:var(--cc-card-shadow)}
+.cc-feed-heading{margin-top:22px}
+.cc-live-label{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--cc-border);border-radius:999px;padding:6px 10px;color:var(--cc-muted);font:700 9px Inter,sans-serif;letter-spacing:1px;white-space:nowrap}
+.cc-live-label i{width:7px;height:7px;border-radius:50%;background:#18ad83;box-shadow:0 0 0 4px rgba(24,173,131,.12)}
+.cc-campus-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0 0 16px}
+.cc-moment-card{position:relative;display:flex;align-items:center;gap:10px;min-width:0;min-height:76px;padding:12px;border:1px solid var(--cc-border);border-radius:16px;background:var(--cc-surface);color:var(--cc-text);text-align:left;cursor:pointer;overflow:hidden;transition:transform .18s,border-color .18s,box-shadow .18s}
+.cc-moment-card:hover{transform:translateY(-2px);border-color:#b9c5f5;box-shadow:0 8px 22px rgba(40,62,130,.09)}
+.cc-moment-icon{width:39px;height:39px;flex:0 0 39px;display:grid;place-items:center;border-radius:13px;background:#e9edff;color:#435bd0}
+.cc-moment-card>span:nth-child(2){display:grid;gap:3px;min-width:0}
+.cc-moment-card strong{font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cc-moment-card small{font-size:10px;color:var(--cc-muted);white-space:nowrap}
+.cc-moment-arrow{margin-left:auto;align-self:flex-start;color:var(--cc-muted);font-size:15px}
+.cc-moment-groups .cc-moment-icon{background:#e4f7f2;color:#078b7d}
+.cc-moment-library .cc-moment-icon{background:#f0eaff;color:#7656c9}
+.composer{border-radius:19px}
+.composer textarea{min-height:72px}
+.post-card{border-radius:18px}
+.post-head .avatar{outline:3px solid var(--cc-brand-soft);outline-offset:2px}
+.post-actions button{border-radius:10px}
+.post-actions button.liked{color:var(--cc-brand);background:var(--cc-brand-soft)}
+.right-sidebar .account-card{border-top:3px solid var(--cc-aqua)}
+.ccx-heading{border-radius:22px;background:radial-gradient(circle at 90% 5%,#ffffff25,transparent 26%),linear-gradient(120deg,#253d8c,#315fc0 65%,#168d91)}
+@media(max-width:1120px){.layout{grid-template-columns:215px minmax(0,1fr)}.right-sidebar{grid-column:2}}
+@media(max-width:760px){
+  .topbar{display:flex;gap:8px;height:58px;margin:0 -9px;padding:0 10px}
+  .brand{min-width:0;flex:1;font-size:17px}.brandmark{width:35px;height:35px}
+  .layout{display:flex;flex-direction:column;gap:10px;padding:10px 0 86px}
+  .left-sidebar{display:contents}
+  .left-sidebar .welcome-card,.left-sidebar .sidebar-note{display:none}
+  .nav-menu,.nav-menu.nav-open{position:fixed;z-index:120;left:10px;right:10px;bottom:max(8px,env(safe-area-inset-bottom));display:flex;justify-content:space-around;gap:2px;margin:0;padding:7px 5px;border:1px solid var(--cc-border);border-radius:18px;background:color-mix(in srgb,var(--cc-surface) 92%,transparent);backdrop-filter:blur(18px);box-shadow:0 10px 35px rgba(16,28,58,.18);overflow-x:auto}
+  .nav-menu button{display:flex;flex:1;flex-direction:column;justify-content:center;gap:3px;min-width:55px;height:51px;padding:4px 2px;border-radius:12px;font-size:9px;white-space:nowrap}
+  .nav-menu button svg{width:19px;height:19px}
+  .nav-menu button.active:before{left:50%;right:auto;top:1px;bottom:auto;width:18px;height:3px;transform:translateX(-50%)}
+  .mobile-menu-toggle{display:none}
+  .main-column,.right-sidebar{width:100%;min-width:0}
+  .right-sidebar{margin:0;display:grid;grid-template-columns:1fr;gap:10px}
+  .cc-campus-strip{grid-template-columns:repeat(3,minmax(118px,1fr));overflow-x:auto;padding:2px 1px 8px;scroll-snap-type:x mandatory}
+  .cc-moment-card{scroll-snap-align:start;min-height:72px;padding:9px;gap:7px}
+  .cc-moment-icon{width:33px;height:33px;flex-basis:33px}
+  .cc-moment-card strong{font-size:11px}.cc-moment-card small{font-size:9px}
+  .cc-live-label{font-size:8px;padding:5px 7px}
+  .hero{border-radius:17px}
+  .post-card,.composer{border-radius:16px}
+}
+@media(max-width:390px){.cc-moment-arrow{display:none}.cc-moment-card{gap:5px;padding:7px}.cc-moment-icon{width:29px;height:29px;flex-basis:29px}}
+html[data-theme="dark"] .cc-moment-icon{background:#303957;color:#aab9ff}
+html[data-theme="dark"] .cc-moment-groups .cc-moment-icon{background:#1e403d;color:#6ed6c6}
+html[data-theme="dark"] .cc-moment-library .cc-moment-icon{background:#3a3054;color:#c4aaff}
+html[data-theme="dark"] .hero{background:radial-gradient(circle at 88% 20%,rgba(18,168,154,.14),transparent 28%),linear-gradient(118deg,#202d4b,#242b40 58%,#1e3c3a);border-color:#35415e}
