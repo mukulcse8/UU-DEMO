@@ -77,7 +77,7 @@ export default function ExpansionHub({ profile }: { profile: ProfileLite }) {
     setBusy(true);setMessage("");
     const safeName=f.name.replace(/[^a-zA-Z0-9._-]/g,"_");
     const path=`${profile.id}/${crypto.randomUUID()}-${safeName}`;
-    const up=await supabase.storage.from("campus-private").upload(path,f,{contentType:f.type,upsert:false});
+    const up=await supabase.storage.from("academic-resources").upload(path,f,{contentType:f.type,upsert:false});
     if(up.error){setBusy(false);setMessage(up.error.message);return;}
     const cat=await supabase.from("resource_categories").select("id").eq("name",resourceCategory).maybeSingle();
     const ins=await supabase.from("academic_resources").insert({
@@ -87,7 +87,7 @@ export default function ExpansionHub({ profile }: { profile: ProfileLite }) {
       uploader_id:profile.id,status:"pending",visibility:"university"
     });
     setBusy(false);
-    if(ins.error){await supabase.storage.from("campus-private").remove([path]);setMessage(ins.error.message);return;}
+    if(ins.error){await supabase.storage.from("academic-resources").remove([path]);setMessage(ins.error.message);return;}
     setResourceTitle("");setResourceDescription("");setCourseCode("");setSemester("");setResourceFile(null);
     setMessage("Uploaded for review. It will appear in the library after approval.");
     await load();
@@ -97,12 +97,12 @@ export default function ExpansionHub({ profile }: { profile: ProfileLite }) {
     if(!confirm("Delete this resource?")) return;
     const del=await supabase.from("academic_resources").update({deleted_at:new Date().toISOString()}).eq("id",r.id).eq("uploader_id",profile.id);
     if(del.error){setMessage(del.error.message);return;}
-    if(r.file_key) await supabase.storage.from("campus-private").remove([r.file_key]);
+    if(r.file_key) await supabase.storage.from("academic-resources").remove([r.file_key]);
     setMessage("Resource deleted.");await load();
   }
   async function downloadResource(r:Resource) {
     if(!supabase || !r.file_key) return;
-    const {data,error}=await supabase.storage.from("campus-private").download(r.file_key);
+    const {data,error}=await supabase.storage.from("academic-resources").download(r.file_key);
     if(error){setMessage(error.message);return;}
     const url=URL.createObjectURL(data);const a=document.createElement("a");a.href=url;a.download=r.file_name||r.title;a.click();window.setTimeout(()=>URL.revokeObjectURL(url),1000);
   }
