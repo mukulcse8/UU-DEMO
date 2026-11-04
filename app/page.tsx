@@ -841,21 +841,25 @@ export default function Home() {
       .select("id,name,short_name,domain")
       .eq("is_active", true)
       .order("name")
-      .then(({ data, error }) => {
-        if (!mounted) return;
-        if (error) {
-          setNotice(current => current || "University list could not be loaded: " + error.message);
-          return;
+      .then(
+        ({ data, error }) => {
+          if (!mounted) return;
+          if (error) {
+            setNotice(current => current || "University list could not be loaded: " + error.message);
+            return;
+          }
+          if (data?.length) setUniversities(data as University[]);
+          else {
+            setUniversities([]);
+            setNotice(current => current || "No active universities found. Ask an administrator to add universities.");
+          }
+        },
+        (error: any) => {
+          if (mounted) {
+            setNotice(current => current || "University list request failed: " + (error?.message || "Please refresh."));
+          }
         }
-        if (data?.length) setUniversities(data as University[]);
-        else {
-          setUniversities([]);
-          setNotice(current => current || "No active universities found. Ask an administrator to add universities.");
-        }
-      })
-      .catch((error: any) => {
-        if (mounted) setNotice(current => current || "University list request failed: " + (error?.message || "Please refresh."));
-      });
+      );
 
     return () => {
       mounted = false;
