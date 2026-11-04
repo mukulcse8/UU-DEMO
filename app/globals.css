@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
+:root{--ink:#17233b;--muted:#748097;--line:#e7ebf2;--blue:#315ee8;--pale:#f3f6ff;--bg:#f7f8fc}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:'Hind Siliguri',Inter,sans-serif}.shell{max-width:1440px;margin:auto;padding:0 34px}.topbar{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);gap:25px}.brand{display:flex;align-items:center;gap:11px;color:var(--ink);text-decoration:none;font-size:20px;font-weight:700;line-height:1.05;min-width:230px}.brandmark{width:43px;height:43px;border-radius:14px;background:#e9efff;color:var(--blue);display:grid;place-items:center}.brand-accent{color:var(--blue)}.brand small{display:block;color:var(--muted);font:11px Inter;margin-top:5px;letter-spacing:.2px}.top-search{height:43px;max-width:480px;flex:1;background:#fff;border:1px solid var(--line);border-radius:12px;display:flex;align-items:center;gap:10px;padding:0 14px;color:#8994a8}.top-search input{border:0;outline:0;width:100%;font:14px 'Hind Siliguri';background:transparent}.top-actions{display:flex;align-items:center;gap:20px}.icon-button{position:relative;border:0;background:none;color:#59677f}.icon-button i{position:absolute;width:6px;height:6px;border-radius:50%;background:#f26b75;right:1px;top:0}.login-link,.profile-pill{display:flex;align-items:center;gap:8px;color:var(--blue);text-decoration:none;font-weight:600;border:0;background:none}.profile-pill{color:var(--ink);cursor:pointer}.avatar{width:39px;height:39px;border-radius:50%;display:grid;place-items:center;background:#f0e9ff;color:#7951bd;font-weight:700;flex-shrink:0}.avatar-blue{background:#e6edff;color:var(--blue)}.layout{display:grid;grid-template-columns:235px minmax(400px,1fr) 285px;gap:27px;padding-top:26px}.left-sidebar,.right-sidebar{position:sticky;top:20px;height:max-content}.welcome-card,.account-card,.side-widget,.composer,.post-card,.university-card{background:#fff;border:1px solid var(--line);border-radius:16px}.welcome-card{padding:20px}.welcome-icon{width:43px;height:43px;border-radius:13px;background:#edf1ff;color:var(--blue);display:grid;place-items:center}.welcome-card h3{font-size:17px;line-height:1.45;margin:14px 0 7px}.welcome-card p,.side-widget p,.account-card>p{font-size:13px;color:var(--muted);line-height:1.65;margin:0}.verified{display:flex;align-items:center;gap:5px;color:#26966a;font-size:11px;margin-top:14px}.nav-menu{margin-top:20px;display:grid;gap:6px}.nav-menu button{height:45px;border:0;background:transparent;border-radius:10px;text-align:left;padding:0 13px;display:flex;align-items:center;gap:12px;color:#637087;font:500 14px 'Hind Siliguri';cursor:pointer}.nav-menu button svg{width:18px}.nav-menu button.active,.nav-menu button:hover{background:#eaf0ff;color:var(--blue)}.sidebar-note{margin-top:30px;border-top:1px solid var(--line);padding:18px 5px}.sidebar-note strong{font-size:13px}.sidebar-note p{font-size:12px;color:var(--muted);line-height:1.6}.hero{background:linear-gradient(110deg,#eaf0ff,#f4f6ff 65%,#e6edff);border-radius:18px;min-height:184px;padding:27px 30px;display:flex;align-items:center;justify-content:space-between;overflow:hidden;position:relative}.eyebrow{font:700 10px Inter;color:var(--blue);letter-spacing:1.5px}.hero h1{font-size:29px;margin:9px 0 5px;letter-spacing:-.5px}.hero p{font-size:13px;color:#65728a;margin:0}.hero-art{width:150px;height:130px;border-radius:50%;display:grid;place-items:center;color:var(--blue);position:relative;margin-right:15px}.orbit{position:absolute;border:1px solid #b7c8ff;border-radius:50%;width:130px;height:90px;transform:rotate(-25deg)}.orbit-two{transform:rotate(50deg);width:155px;height:65px}.section-heading{display:flex;align-items:center;justify-content:space-between;margin:26px 0 14px}.section-heading h2{font-size:19px;margin:0}.section-heading p{font-size:12px;color:var(--muted);margin:2px 0}.section-heading select,.field{border:1px solid var(--line);border-radius:9px;background:white;padding:9px 11px;font:13px 'Hind Siliguri';color:#536078;max-width:220px}.composer{padding:16px;margin-bottom:16px}.composer-top{display:flex;gap:11px}.composer textarea{resize:vertical;border:0;outline:0;width:100%;min-height:55px;font:14px 'Hind Siliguri';padding:7px;color:var(--ink)}.composer-bottom{border-top:1px solid var(--line);padding-top:12px;margin-top:10px;display:flex;align-items:center;justify-content:space-between}.composer-bottom span{display:flex;gap:6px;align-items:center;color:#8590a3;font-size:12px}.primary-button{background:var(--blue);color:#fff;border:0;border-radius:9px;padding:10px 15px;display:inline-flex;align-items:center;justify-content:center;gap:7px;font:600 13px 'Hind Siliguri';cursor:pointer}.primary-button:disabled{opacity:.55;cursor:not-allowed}.post-card{padding:17px;margin-bottom:14px}.post-head{display:flex;align-items:center;gap:10px}.post-author{display:grid;gap:2px}.post-author strong{font-size:13px}.post-author span{font-size:11px;color:var(--muted)}.more{margin-left:auto;color:#8994a8}.post-content{font-size:14px;line-height:1.8;margin:17px 0}.post-stats{display:flex;justify-content:space-between;color:#8a95a8;font-size:11px;padding-bottom:11px}.post-actions{border-top:1px solid var(--line);display:flex;padding-top:10px;justify-content:space-around}.post-actions button{display:flex;align-items:center;gap:7px;border:0;background:none;color:#758198;font:13px 'Hind Siliguri';cursor:pointer}.account-card{padding:18px}.account-title{display:flex;align-items:center;gap:8px;color:var(--blue)}.account-title h3{font-size:16px;color:var(--ink);margin:0}.account-card>p{margin:9px 0 15px}.account-card label{display:block;font-size:12px;font-weight:600;margin:11px 0 5px;color:#536078}.field{width:100%;max-width:none;outline-color:#9cb2ff}.full{width:100%;margin-top:13px}.secondary-button{background:#f1f4fb;border:1px solid var(--line);color:#52617a;border-radius:9px;padding:9px;font:600 13px 'Hind Siliguri';cursor:pointer}.privacy{display:block;color:#929bad;font-size:10px;line-height:1.5;margin-top:12px}.side-widget{padding:17px;margin-top:15px}.side-widget h3{font-size:14px;margin:0 0 7px}.side-widget a{display:inline-block;margin-top:12px;color:var(--blue);font-size:12px;text-decoration:none}.footer-links{font-size:10px;color:#9aa3b3;line-height:2;margin:20px 4px}.notice{margin-top:15px;padding:10px 13px;background:#fff8e7;border:1px solid #f5e2a9;color:#785c17;border-radius:9px;font-size:13px;display:flex;justify-content:space-between}.notice button{border:0;background:none;color:inherit;font-size:18px;cursor:pointer}.university-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.university-card{padding:17px;display:grid;gap:7px}.uni-icon{width:39px;height:39px;border-radius:11px;background:#edf1ff;color:var(--blue);display:grid;place-items:center}.university-card strong{font-size:14px}.university-card span,.university-card small{font-size:11px;color:var(--muted)}@media(max-width:1100px){.layout{grid-template-columns:200px minmax(350px,1fr)}.right-sidebar{grid-column:2;position:static;display:grid;grid-template-columns:1fr 1fr;gap:12px}.footer-links{grid-column:1/-1}.side-widget{margin:0}}@media(max-width:760px){.shell{padding:0 14px}.topbar{height:70px}.brand{min-width:0;font-size:17px}.brand small,.top-search,.left-sidebar{display:none}.layout{display:block;padding-top:15px}.hero{min-height:160px;padding:20px}.hero h1{font-size:23px}.hero-art{width:95px;margin:0}.hero-art svg{width:48px}.right-sidebar{display:block;margin-top:18px}.account-card{margin-bottom:12px}.section-heading{gap:8px}.section-heading select{max-width:150px}.university-grid{grid-template-columns:1fr}.top-actions{gap:10px}.login-link{font-size:12px}}
+
+
+/* Student verification workflow */
+.verification-panel { display: grid; gap: 10px; margin-top: 14px; }
+.verification-panel p { color: var(--muted, #64748b); line-height: 1.7; margin: 0 0 4px; }
+.verification-panel label { font-size: 13px; font-weight: 600; margin-top: 4px; }
+.verification-panel .privacy { display: block; line-height: 1.6; color: #7b879c; }
+.post-card .post-actions button:disabled { opacity: .55; cursor: not-allowed; }
+
+/* CampusConnect responsive social sign-in experience */
+.auth-page{min-height:100vh;display:grid;grid-template-columns:minmax(0,1.12fr) minmax(420px,.88fr);background:#f5f7fb}
+.auth-intro{position:relative;min-height:100vh;padding:42px clamp(28px,7vw,112px);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;background:radial-gradient(circle at 85% 18%,rgba(107,144,255,.28),transparent 30%),linear-gradient(145deg,#102b68 0%,#2349a6 54%,#315ee8 100%);color:#fff}
+.auth-intro:after{content:"";position:absolute;width:520px;height:520px;border:1px solid rgba(255,255,255,.14);border-radius:50%;right:-180px;bottom:-210px;box-shadow:0 0 0 45px rgba(255,255,255,.035),0 0 0 95px rgba(255,255,255,.025)}
+.auth-brand{display:flex;align-items:center;gap:12px;color:white;text-decoration:none;font-size:25px;font-weight:800;letter-spacing:-.5px;position:relative;z-index:1}.auth-brand>span:last-child>span{color:#a9c0ff}.auth-brand-mark{width:52px;height:52px;border-radius:17px;background:#fff;color:#315ee8;display:grid;place-items:center;box-shadow:0 10px 28px #0c225444}
+.auth-copy{max-width:650px;position:relative;z-index:1;margin:70px 0}.auth-kicker{font:700 11px Inter,sans-serif;letter-spacing:2.5px;color:#b9ccff}.auth-copy h1{font-size:clamp(38px,5vw,66px);line-height:1.22;letter-spacing:-1.3px;margin:22px 0}.auth-copy h1 em{font-style:normal;color:#b7caff}.auth-copy>p{font-size:17px;line-height:1.9;color:#e1e9ff;max-width:570px}.auth-feature-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}.auth-feature-row span{display:flex;align-items:center;gap:8px;border:1px solid #ffffff35;background:#ffffff12;border-radius:999px;padding:10px 14px;font-size:13px;color:#f5f7ff}.auth-footer{font-size:12px;color:#c4d3fa;position:relative;z-index:1}
+.auth-panel-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:42px 28px}.auth-panel{width:min(100%,460px);padding:34px;background:#fff;border:1px solid #e6eaf2;border-radius:24px;box-shadow:0 22px 70px rgba(25,48,91,.09)}.auth-panel-heading{display:flex;align-items:center;gap:13px;margin-bottom:27px}.auth-small-icon{width:46px;height:46px;border-radius:15px;background:#edf2ff;color:#315ee8;display:grid;place-items:center;flex-shrink:0}.auth-panel h2{margin:0;font-size:24px;line-height:1.3;color:#17233b}.auth-panel-heading p{margin:5px 0 0;color:#77839a;font-size:13px}.auth-panel label{display:block;margin:15px 0 7px;font-size:13px;font-weight:600;color:#34425d}.auth-panel .field{height:49px;border:1px solid #dfe5ef;border-radius:11px;padding:0 14px;font:14px 'Hind Siliguri',sans-serif;background:#fff;width:100%;color:#24334f;outline:none;transition:border .2s,box-shadow .2s}.auth-panel .field:focus{border-color:#4772ed;box-shadow:0 0 0 3px #315ee81a}.auth-submit{height:51px!important;border-radius:11px!important;margin-top:23px;font-size:15px!important}.auth-switch{display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;border-top:1px solid #edf0f5;margin-top:23px;padding-top:21px;font-size:13px;color:#738099}.auth-switch button{border:0;background:none;color:#315ee8;font-weight:700;font:600 13px 'Hind Siliguri';cursor:pointer}.auth-legal{font-size:11px;line-height:1.7;color:#8a95a8;text-align:center;margin:20px 0 0}.auth-notice{padding:11px 13px;background:#fff7e8;border:1px solid #f4d9a4;color:#765316;border-radius:10px;font-size:12px;line-height:1.65;margin-bottom:16px;overflow-wrap:anywhere}.auth-bottom-note{font-size:11px;color:#98a2b3;margin:22px 0 0}.auth-loading{height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:#f5f7fb;color:#52617b}.auth-loading .auth-brand-mark{background:#e9efff;box-shadow:none}.verified-tick{display:inline-grid;place-items:center;width:17px;height:17px;border-radius:50%;background:#2589f5;color:white;font:700 12px Arial;vertical-align:middle;margin-left:4px}
+@media(max-width:850px){.auth-page{grid-template-columns:1fr}.auth-intro{min-height:auto;padding:24px 24px 28px}.auth-copy{margin:45px 0 20px}.auth-copy h1{font-size:38px}.auth-copy>p{font-size:14px}.auth-feature-row{gap:7px}.auth-feature-row span{font-size:11px;padding:8px 10px}.auth-footer{display:none}.auth-panel-wrap{padding:26px 18px 36px}.auth-panel{padding:25px 21px;border-radius:20px}.auth-panel h2{font-size:21px}}
+@media(max-width:420px){.auth-intro{padding:20px}.auth-copy{margin:32px 0 12px}.auth-copy h1{font-size:32px}.auth-copy>p{font-size:13px}.auth-panel-wrap{padding:18px 12px 28px}.auth-panel{padding:22px 17px}.auth-feature-row span{font-size:10px}}
+
+
+/* Professional campus social network interactions */
+.profile-shortcut{border:0;background:transparent;padding:0;cursor:pointer;border-radius:50%;display:grid;place-items:center}
+.profile-shortcut:hover{outline:3px solid #e5ecff}
+.verified-tick{display:inline-grid;place-items:center;width:17px;height:17px;border-radius:50%;background:#2787ee;color:#fff;font:700 11px Inter,sans-serif;margin-left:4px;vertical-align:middle}
+.post-actions button.liked{color:#315ee8;font-weight:700}
+.quiet-icon{border:0;background:transparent;color:#8792a6;cursor:pointer;margin-left:auto}
+.comment-compose,.chat-compose{display:flex;gap:8px;border-top:1px solid var(--line);padding-top:12px;margin-top:10px}
+.comment-compose input,.chat-compose input{flex:1;min-width:0;border:1px solid var(--line);border-radius:22px;padding:11px 15px;font:13px 'Hind Siliguri';outline-color:#a9bcff}
+.comment-compose button,.chat-compose button{width:40px;height:40px;border:0;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;cursor:pointer}
+.profile-cover{min-height:190px;padding:26px;border-radius:18px;background:linear-gradient(120deg,#e7efff,#f6f8ff 60%,#dce7ff);display:flex;align-items:flex-end;gap:18px;margin-bottom:16px}
+.profile-big-avatar{width:88px;height:88px;border-radius:50%;display:grid;place-items:center;background:#fff;color:var(--blue);font-size:34px;font-weight:700;border:4px solid #fff;box-shadow:0 5px 22px #203c7620}
+.profile-cover h2{margin:0 0 4px;font-size:23px}.profile-cover p{margin:0;color:var(--muted);font-size:13px}
+.profile-details .section-heading{margin-top:0}
+.profile-info-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;padding:8px 0}
+.profile-info-grid div{display:grid;gap:4px}.profile-info-grid small{font-size:11px;color:var(--muted)}.profile-info-grid strong{font-size:13px;font-weight:600}
+.people-list,.group-list,.messenger-people{background:#fff;border:1px solid var(--line);border-radius:15px;padding:8px}
+.person-row{display:flex;align-items:center;gap:11px;padding:12px;border-bottom:1px solid #f0f2f7}
+.person-row:last-child{border-bottom:0}.person-row .post-author{flex:1}.person-row .secondary-button{display:flex;align-items:center;gap:6px}
+.create-group{display:grid;gap:10px;margin-bottom:15px}.create-group h3{display:flex;align-items:center;gap:8px;margin:0 0 3px;font-size:15px}.create-group .field{max-width:none}
+.group-layout,.messenger-layout{display:grid;grid-template-columns:minmax(220px,.75fr) minmax(0,1.5fr);gap:14px;min-height:390px}
+.group-item{display:flex;align-items:center;gap:10px;padding:10px;border-bottom:1px solid #f0f2f7}.group-item>button:first-child{flex:1;min-width:0;display:flex;align-items:center;gap:10px;border:0;background:none;text-align:left;cursor:pointer;color:var(--ink)}
+.group-item>button:first-child>span:last-child{display:grid;gap:3px;min-width:0}.group-item strong{font-size:13px}.group-item small{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:160px}
+.group-item.selected{background:#f2f5ff;border-radius:10px}.group-avatar{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:#eaf0ff;color:var(--blue);flex-shrink:0}
+.join-group{border:1px solid #dfe7ff;background:#f5f7ff;color:var(--blue);border-radius:8px;padding:6px 9px;font:12px 'Hind Siliguri';cursor:pointer}
+.group-chat,.messenger-chat{background:#fff;border:1px solid var(--line);border-radius:15px;padding:14px;display:flex;flex-direction:column;min-height:390px}
+.group-chat h3,.messenger-chat h3,.messenger-people h3{font-size:14px;margin:0 0 10px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.chat-stream{flex:1;overflow:auto;display:flex;flex-direction:column;gap:9px;padding:10px 2px}
+.chat-bubble{align-self:flex-start;max-width:82%;padding:10px 13px;border-radius:13px 13px 13px 4px;background:#f0f3f9;font-size:13px;line-height:1.6;overflow-wrap:anywhere}
+.chat-bubble.mine{align-self:flex-end;background:#e8efff;color:#2348b5;border-radius:13px 13px 4px 13px}
+.chat-bubble small{display:block;color:#8994a8;font-size:9px;text-align:right;margin-top:4px}
+.chat-compose{margin-top:8px}
+.messenger-people{padding:12px}.messenger-people .person-row{width:100%;border:0;background:transparent;text-align:left;cursor:pointer}.messenger-people .person-row.selected{background:#f1f5ff;border-radius:10px}
+.messenger-people .person-row span{display:grid;gap:3px}.messenger-people .person-row strong{font-size:12px}.messenger-people .person-row small{font-size:10px;color:var(--muted)}
+.empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;color:var(--muted);font-size:12px;text-align:center;padding:28px}
+.empty-state strong{font-size:15px;color:var(--ink)}
+.mobile-menu-toggle{display:none}
+@media(max-width:760px){
+ .mobile-menu-toggle{display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:#fff;color:var(--blue);border-radius:9px;padding:8px 12px;margin:10px 0 0;font:600 12px 'Hind Siliguri'}
+ .left-sidebar:has(.nav-open){display:block;position:static;margin-bottom:12px}
+ .left-sidebar:has(.nav-open) .welcome-card,.left-sidebar:has(.nav-open) .sidebar-note{display:none}
+ .left-sidebar:has(.nav-open) .nav-menu{display:grid;margin-top:8px;padding:8px;background:#fff;border:1px solid var(--line);border-radius:12px}
+ .group-layout,.messenger-layout{grid-template-columns:1fr}
+ .group-chat,.messenger-chat{min-height:330px}
+ .profile-cover{min-height:150px;padding:18px}.profile-big-avatar{width:68px;height:68px}
+ .profile-cover h2{font-size:19px}
+ .profile-info-grid{grid-template-columns:1fr 1fr}
+ .top-actions{gap:8px}.profile-pill span{display:none}
+}
+
+/* 2026 CampusConnect social feed polish (login screen intentionally unchanged) */
+.shell{max-width:1520px;padding:0 clamp(14px,2.4vw,36px)}
+.topbar{position:sticky;top:0;z-index:30;background:rgba(247,248,252,.94);backdrop-filter:blur(16px);height:74px}
+.layout{grid-template-columns:245px minmax(0,680px) 300px;justify-content:space-between;gap:clamp(16px,2vw,28px)}
+.main-column{min-width:0}
+.left-sidebar,.right-sidebar{top:92px}
+.welcome-card,.account-card,.side-widget,.composer,.post-card,.university-card{box-shadow:0 2px 12px rgba(24,43,82,.035);transition:box-shadow .18s ease,border-color .18s ease}
+.post-card:hover,.composer:hover,.account-card:hover{box-shadow:0 8px 26px rgba(24,43,82,.07);border-color:#dce4f5}
+.hero{min-height:150px;background:linear-gradient(115deg,#e9efff 0%,#f7f8ff 60%,#e3ebff 100%);border:1px solid #e3eaff}
+.hero h1{font-size:27px}
+.section-heading{margin-top:22px}
+.composer{padding:17px;margin-bottom:17px}
+.composer textarea{min-height:66px;font-size:15px}
+.composer-bottom{flex-wrap:wrap;gap:10px}
+.post-card{padding:18px;margin-bottom:16px}
+.post-head{align-items:center}
+.post-author strong{font-size:14px}
+.post-author span{font-size:11px}
+.post-content{font-size:15px;line-height:1.85;white-space:pre-wrap;overflow-wrap:anywhere;margin:15px 0 18px}
+.post-stats{align-items:center;border-bottom:1px solid var(--line);padding:0 2px 12px;gap:12px}
+.post-stats span{display:flex;align-items:center;gap:6px}
+.post-stats button{border:0;background:none;color:#8994a8;font:12px 'Hind Siliguri';cursor:pointer}
+.post-actions{padding-top:9px;gap:6px}
+.post-actions button{flex:1;justify-content:center;min-height:40px;border-radius:9px;transition:background .15s ease,color .15s ease}
+.post-actions button:hover{background:#f3f6fc;color:var(--blue)}
+.post-actions button.liked{background:#edf2ff;color:var(--blue)}
+.post-comments{border-top:1px solid var(--line);margin-top:12px;padding-top:12px}
+.comment-row{display:flex;align-items:flex-start;gap:8px;margin:10px 0}
+.avatar-small{width:30px;height:30px;font-size:12px}
+.comment-bubble{background:#f3f5f9;border-radius:13px;padding:9px 12px;min-width:0;max-width:calc(100% - 40px)}
+.comment-bubble strong{font-size:12px}
+.comment-bubble p{margin:3px 0 4px;font-size:13px;white-space:pre-wrap;overflow-wrap:anywhere}
+.comment-bubble small{color:var(--muted);font-size:10px}
+.comment-compose input{background:#f7f8fb}
+.notice{position:sticky;top:82px;z-index:20;box-shadow:0 5px 18px #17233b12}
+.nav-menu button{min-height:46px}
+.nav-menu button.active{font-weight:700}
+.profile-shortcut .avatar{border:2px solid #fff;box-shadow:0 0 0 1px #dce3f2}
+.profile-pill{border-radius:999px;padding:9px 12px;background:#eef2fa}
+.empty-state{min-height:180px}
+@media(max-width:1120px){.layout{grid-template-columns:210px minmax(0,1fr)}.right-sidebar{grid-column:2;position:static}}
+@media(max-width:760px){
+ .shell{padding:0 10px}.topbar{height:62px;margin:0 -10px;padding:0 12px}.layout{padding-top:12px}.hero{min-height:132px;padding:16px}.hero h1{font-size:21px}.hero p{max-width:240px}.hero-art{display:none}
+ .post-card{padding:14px;border-radius:14px}.post-content{font-size:14px}.post-actions button{font-size:12px;gap:5px}.post-actions button svg{width:16px;height:16px}.right-sidebar{margin-top:14px}
+ .top-actions{gap:7px}.profile-pill{padding:8px}.profile-shortcut .avatar{width:35px;height:35px}.mobile-menu-toggle{margin:8px 0}
+}
+@media(max-width:380px){.brand{font-size:15px}.brandmark{width:36px;height:36px}.post-actions{gap:2px}.post-actions button{font-size:11px;padding:0 3px}}
+
+
+/* CampusConnect expansion hub */
+.cc-global-verification{display:flex;align-items:center;gap:12px;padding:14px 16px;margin:0 0 18px;border:1px solid #e9c46a;background:#fff8e6;border-radius:16px;color:#604b12}
+.cc-global-verification>div{display:flex;flex:1;flex-direction:column;gap:3px}
+.cc-global-verification span{font-size:13px;color:#806b35}
+.cc-global-verification button{border:0;border-radius:10px;padding:9px 13px;background:#6b5520;color:white;font-weight:700;cursor:pointer}
+.ccx-hub{display:flex;flex-direction:column;gap:18px;min-width:0}
+.ccx-heading{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:24px;border-radius:22px;background:linear-gradient(125deg,#152e52,#285c83);color:white}
+.ccx-heading h2{margin:5px 0;font-size:25px;letter-spacing:-.5px}
+.ccx-heading p{margin:0;color:#d8e8f4}
+.ccx-eyebrow{font-size:10px;letter-spacing:1.8px;font-weight:800;color:#9ec9e5}
+.ccx-verified{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:8px 12px;background:#ffffff1e;font-size:12px;font-weight:700;white-space:nowrap}
+.ccx-tabs{display:flex;gap:8px;flex-wrap:wrap;border-bottom:1px solid var(--border,#e7eaf0);padding-bottom:12px}
+.ccx-tabs button{display:inline-flex;align-items:center;gap:8px;border:1px solid transparent;border-radius:12px;padding:10px 14px;background:transparent;color:inherit;font-weight:700;cursor:pointer}
+.ccx-tabs button.active{background:#eaf2ff;color:#2456a6;border-color:#d4e3ff}
+.ccx-grid{display:grid;grid-template-columns:minmax(260px,.85fr) minmax(0,1.5fr);gap:16px}
+.ccx-panel{background:var(--card,#fff);border:1px solid var(--border,#e7eaf0);border-radius:18px;padding:18px;box-shadow:0 5px 22px #182b4510;min-width:0}
+.ccx-panel h3{display:flex;align-items:center;gap:8px;margin:0 0 8px;font-size:17px}
+.ccx-muted{color:var(--muted,#778195);font-size:13px}
+.ccx-panel label{display:block;margin:13px 0 6px;font-size:12px;font-weight:750;color:var(--muted,#64748b)}
+.ccx-panel input,.ccx-panel textarea,.ccx-panel select{box-sizing:border-box;width:100%;border:1px solid var(--border,#dfe4ec);border-radius:10px;background:var(--input,#fff);color:inherit;padding:11px 12px;font:inherit;font-size:14px;outline:none}
+.ccx-panel textarea{min-height:84px;resize:vertical}
+.ccx-primary,.ccx-secondary,.ccx-danger{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:0;border-radius:10px;padding:10px 14px;font-weight:750;cursor:pointer}
+.ccx-primary{margin-top:14px;background:#285fc0;color:white}
+.ccx-primary:disabled{opacity:.55;cursor:not-allowed}
+.ccx-secondary{background:#edf3fb;color:#28558f}
+.ccx-danger{background:#fff0ef;color:#a5332c}
+.ccx-listrow,.ccx-resource{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--border,#edf0f4)}
+.ccx-listrow:last-child,.ccx-resource:last-child{border-bottom:0}
+.ccx-round,.ccx-file{width:42px;height:42px;flex:0 0 42px;display:grid;place-items:center;border-radius:13px;background:#edf4ff;color:#315fa7}
+.ccx-grow{flex:1;min-width:0}
+.ccx-grow strong{display:block;overflow-wrap:anywhere}
+.ccx-grow p{margin:4px 0;color:var(--muted,#778195);font-size:12px}
+.ccx-grow small,.ccx-listrow small{display:inline-flex;align-items:center;gap:4px;color:var(--muted,#778195);font-size:11px}
+.ccx-message{display:flex;justify-content:space-between;gap:10px;padding:12px 14px;border-radius:12px;background:#eaf6ef;color:#225d39;font-size:13px}
+.ccx-message button{border:0;background:transparent;font-size:18px;cursor:pointer}
+.ccx-library{display:flex;flex-direction:column;gap:16px}
+.ccx-search{display:flex;align-items:center;gap:10px;padding:0 14px;border:1px solid var(--border,#e2e7ee);border-radius:13px;background:var(--card,#fff)}
+.ccx-search input{width:100%;border:0;outline:0;padding:14px 0;background:transparent;color:inherit;font:inherit}
+.ccx-formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 14px}
+.ccx-formgrid>div{min-width:0}
+.ccx-formgrid .ccx-span{grid-column:1/-1}
+.ccx-resource-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.ccx-resource{background:var(--card,#fff);border:1px solid var(--border,#e7eaf0);border-radius:14px;padding:13px;min-width:0}
+.ccx-gate{padding:38px 24px;text-align:center;background:var(--card,#fff);border:1px solid var(--border,#e7eaf0);border-radius:18px;color:var(--muted,#667085)}
+.ccx-gate h2{color:var(--foreground,#182230)}
+.ccx-gate svg{color:#3569b8}
+@media(max-width:760px){
+ .cc-global-verification{align-items:flex-start;flex-wrap:wrap}
+ .cc-global-verification>div{min-width:calc(100% - 40px)}
+ .cc-global-verification button{margin-left:30px}
+ .ccx-heading{padding:18px;align-items:flex-start}
+ .ccx-heading h2{font-size:21px}
+ .ccx-grid,.ccx-resource-grid{grid-template-columns:1fr}
+ .ccx-formgrid{grid-template-columns:1fr}
+ .ccx-formgrid .ccx-span{grid-column:auto}
+ .ccx-resource{align-items:flex-start;flex-wrap:wrap}
+}
+
+
+.cc-profile-verification {
+  display: block;
+  max-width: 620px;
+  margin-top: 9px;
+  padding: 10px 12px;
+  border: 1px solid rgba(217, 147, 42, .28);
+  border-radius: 12px;
+  background: rgba(217, 147, 42, .08);
+  color: var(--muted, #64748b);
+  line-height: 1.55;
+}
+
+/* CampusConnect social layout refresh: Facebook-style navigation and Instagram-inspired content cards. */
+:root{--cc-bg:#f0f2f5;--cc-surface:#fff;--cc-text:#1c1e21;--cc-muted:#65676b;--cc-border:#e4e6eb;--cc-blue:#1877f2;--cc-hover:#f2f4f7}
+html[data-theme="dark"]{--cc-bg:#18191a;--cc-surface:#242526;--cc-text:#e4e6eb;--cc-muted:#b0b3b8;--cc-border:#3e4042;--cc-blue:#4599ff;--cc-hover:#3a3b3c;--ink:#e4e6eb;--muted:#b0b3b8;--line:#3e4042;--blue:#4599ff;--pale:#26384d;--bg:#18191a;color-scheme:dark}
+html[data-theme="dark"] body{background:var(--cc-bg);color:var(--cc-text)}
+body{background:var(--cc-bg);color:var(--cc-text);font-family:Inter,"Hind Siliguri",system-ui,sans-serif}
+.shell{max-width:1600px;padding:0 clamp(12px,2vw,30px)}
+.topbar{height:64px;position:sticky;top:0;z-index:100;padding:0 clamp(8px,1.2vw,18px);margin:0 calc(clamp(12px,2vw,30px)*-1);background:var(--cc-surface);border-bottom:1px solid var(--cc-border);box-shadow:0 1px 2px #0000000a}
+.brand{min-width:210px;font-size:21px}.brandmark{border-radius:50%;background:#e7f3ff;color:#0866ff;width:40px;height:40px}
+.top-search{height:42px;border:0;border-radius:999px;background:var(--cc-bg);max-width:430px}.top-search input{font-family:inherit;color:var(--cc-text)}
+.top-actions{gap:10px}.icon-button,.settings-shortcut{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--cc-bg);color:var(--cc-text);border:0;cursor:pointer}.settings-shortcut:hover,.icon-button:hover{background:var(--cc-hover)}
+.profile-shortcut{border:0;background:transparent;padding:2px;cursor:pointer}.profile-shortcut .avatar{width:40px;height:40px;border:2px solid var(--cc-surface)}
+.layout{grid-template-columns:260px minmax(420px,680px) minmax(260px,320px);justify-content:space-between;gap:clamp(14px,2vw,28px);padding-top:18px;align-items:start}
+.left-sidebar,.right-sidebar{top:82px;max-height:calc(100vh - 96px);overflow-y:auto;scrollbar-width:thin}
+.welcome-card,.account-card,.side-widget,.composer,.post-card,.university-card,.ccx-panel,.ccx-resource,.settings-card{background:var(--cc-surface);color:var(--cc-text);border:1px solid var(--cc-border);border-radius:14px;box-shadow:0 1px 2px #0000000b}
+.welcome-card{padding:17px}.welcome-card h3{font-size:16px}.welcome-card p,.side-widget p,.account-card>p{color:var(--cc-muted)}
+.nav-menu{gap:4px;margin-top:14px}.nav-menu button{height:48px;border-radius:10px;padding:0 12px;color:var(--cc-text);font:600 14px Inter,"Hind Siliguri",sans-serif}.nav-menu button svg{width:21px;height:21px}.nav-menu button.active{background:#e7f3ff;color:#0866ff}.nav-menu button:hover{background:var(--cc-hover);color:var(--cc-text)}
+.hero{min-height:116px;padding:20px 22px;border-radius:14px;background:linear-gradient(115deg,#e7f3ff,#f3f7ff);border:1px solid #d8e8ff;color:#1c1e21}.hero h1{font-size:23px;margin:7px 0}.hero p{color:#53657b}.hero-art{width:100px;height:90px}.hero-art svg{width:48px}
+.section-heading{margin:20px 2px 12px}.section-heading h2{font-size:20px;letter-spacing:-.3px}.section-heading p{color:var(--cc-muted)}
+.composer{padding:15px;border-radius:14px}.composer textarea{font-family:inherit;background:transparent;color:var(--cc-text)}.composer-bottom{border-color:var(--cc-border)}
+.post-card{padding:16px;border-radius:14px;margin-bottom:14px}.post-head{gap:11px}.post-author strong{font-size:14px}.post-author span{color:var(--cc-muted)}.post-content{font-size:15px;color:var(--cc-text)}.post-stats{color:var(--cc-muted);border-color:var(--cc-border)}.post-actions{border-color:var(--cc-border)}.post-actions button{font-family:inherit;color:var(--cc-muted);font-weight:650;border-radius:8px}.post-actions button:hover{background:var(--cc-hover);color:var(--cc-text)}
+.avatar{background:#e7f3ff;color:#0866ff}.avatar-small{background:#e7f3ff;color:#0866ff}.field,.section-heading select{background:var(--cc-surface);border-color:var(--cc-border);color:var(--cc-text);font-family:inherit}.primary-button{background:#0866ff;border-radius:8px;font-family:inherit}.secondary-button{background:var(--cc-hover);border-color:var(--cc-border);color:var(--cc-text);font-family:inherit}.account-card{padding:16px}.side-widget{padding:16px}.footer-links{color:var(--cc-muted)}
+.notice{background:#fff4d6;color:#684d00}.cc-global-verification{background:#fff4d6;color:#684d00;border-radius:12px}
+.people-list,.group-list,.messenger-people{background:transparent}.person-row,.group-item{background:var(--cc-surface);border-color:var(--cc-border);color:var(--cc-text)}.person-row:hover,.group-item:hover{background:var(--cc-hover)}.group-chat,.messenger-chat,.messenger-people{background:var(--cc-surface);border-color:var(--cc-border);color:var(--cc-text)}.chat-stream{background:var(--cc-bg)}.chat-bubble{background:var(--cc-hover);color:var(--cc-text)}.chat-bubble.mine{background:#dceaff;color:#17365f}.comment-bubble{background:var(--cc-hover);color:var(--cc-text)}.comment-compose input{background:var(--cc-bg);color:var(--cc-text)}
+.settings-shortcut{flex:0 0 42px}.settings-page{display:grid;gap:14px}.settings-card{display:flex;align-items:center;gap:15px;padding:19px 20px;min-width:0}.settings-card-icon{width:44px;height:44px;flex:0 0 44px;border-radius:12px;display:grid;place-items:center;background:#e7f3ff;color:#0866ff}.settings-card-copy{flex:1;min-width:180px}.settings-card-copy h3{margin:0 0 5px;font-size:16px}.settings-card-copy p{margin:0;color:var(--cc-muted);font-size:13px;line-height:1.5}.settings-card-copy small{display:block;margin-top:6px;color:var(--cc-muted);font-size:11px}.settings-control{display:flex;gap:6px;padding:4px;border-radius:10px;background:var(--cc-bg)}.settings-control button{border:0;background:transparent;color:var(--cc-text);border-radius:8px;padding:9px 13px;font:600 13px Inter,"Hind Siliguri",sans-serif;cursor:pointer;display:inline-flex;align-items:center;gap:6px}.settings-control button.selected{background:var(--cc-surface);color:#0866ff;box-shadow:0 1px 3px #0002}.settings-logout{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:9px;background:#ffebe9;color:#b42318;padding:11px 15px;font:700 13px Inter,"Hind Siliguri",sans-serif;cursor:pointer}.settings-logout:hover{background:#ffdad6}
+html[data-theme="dark"] .welcome-card,html[data-theme="dark"] .account-card,html[data-theme="dark"] .side-widget,html[data-theme="dark"] .composer,html[data-theme="dark"] .post-card,html[data-theme="dark"] .university-card,html[data-theme="dark"] .ccx-panel,html[data-theme="dark"] .ccx-resource,html[data-theme="dark"] .settings-card,html[data-theme="dark"] .group-chat,html[data-theme="dark"] .messenger-chat,html[data-theme="dark"] .messenger-people{background:var(--cc-surface);color:var(--cc-text);border-color:var(--cc-border)}
+html[data-theme="dark"] .nav-menu button.active{background:#263b53;color:#8abfff}html[data-theme="dark"] .nav-menu button:hover{background:var(--cc-hover)}html[data-theme="dark"] .hero{background:linear-gradient(115deg,#1c3147,#26384d);border-color:#344b65;color:#e4e6eb}html[data-theme="dark"] .hero p{color:#c1c9d4}html[data-theme="dark"] .top-search,html[data-theme="dark"] .icon-button,html[data-theme="dark"] .settings-shortcut,html[data-theme="dark"] .settings-control,html[data-theme="dark"] .field,html[data-theme="dark"] .section-heading select{background:#3a3b3c;color:var(--cc-text);border-color:var(--cc-border)}html[data-theme="dark"] .secondary-button{background:#3a3b3c;color:var(--cc-text);border-color:var(--cc-border)}html[data-theme="dark"] .comment-bubble,html[data-theme="dark"] .chat-bubble{background:#3a3b3c;color:var(--cc-text)}html[data-theme="dark"] .chat-bubble.mine{background:#263b53;color:#e4e6eb}html[data-theme="dark"] .ccx-heading{background:linear-gradient(125deg,#152e52,#285c83)}
+@media(max-width:1120px){.layout{grid-template-columns:220px minmax(0,1fr)}.right-sidebar{grid-column:2;position:static;max-height:none;overflow:visible}}
+@media(max-width:760px){.shell{padding:0 9px}.topbar{margin:0 -9px;padding:0 10px;height:58px}.brand{min-width:0;font-size:17px}.brand small{display:none}.brandmark{width:35px;height:35px}.top-search{max-width:none;min-width:0}.top-search input{font-size:12px}.top-actions{gap:5px}.settings-shortcut,.icon-button{width:36px;height:36px}.layout{display:flex;flex-direction:column;gap:12px;padding-top:10px}.left-sidebar{position:static;max-height:none;overflow:visible;width:100%}.welcome-card{display:none}.nav-menu{display:none;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;margin:0 0 10px}.nav-menu.nav-open{display:grid}.nav-menu button{height:42px;font-size:12px}.sidebar-note{display:none}.main-column{width:100%;min-width:0}.right-sidebar{width:100%;margin:0;max-height:none}.hero{min-height:105px}.hero-art{display:none}.settings-card{align-items:flex-start;flex-wrap:wrap;padding:15px}.settings-card-copy{min-width:calc(100% - 65px)}.settings-control{width:100%;margin-left:59px;flex-wrap:wrap}.settings-control button{flex:1;justify-content:center}.settings-logout{margin-left:59px}.post-card{padding:13px}.ccx-grid,.ccx-resource-grid{grid-template-columns:1fr}}
+@media(max-width:400px){.top-search{max-width:125px}.brand{font-size:15px}.top-actions{gap:3px}.profile-shortcut .avatar{width:33px;height:33px}.settings-shortcut,.icon-button{width:33px;height:33px}}
+:root{--card:var(--cc-surface);--border:var(--cc-border);--input:var(--cc-surface);--foreground:var(--cc-text)}
+html[data-theme="dark"]{--card:var(--cc-surface);--border:var(--cc-border);--input:#3a3b3c;--foreground:var(--cc-text);--muted:var(--cc-muted)}
